@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { UserServiceProvider } from '../../providers/user-service/user-service';
 
 @Component({
   selector: 'page-home',
@@ -18,7 +19,7 @@ export class HomePage {
   logPage: any;
   loggedIn: any;
 
-  constructor(public navCtrl: NavController, private afAuth: AngularFireAuth) {
+  constructor(public navCtrl: NavController, private afAuth: AngularFireAuth, private userService: UserServiceProvider) {
     this.logPage = 'LoginPage';
     this.afAuth.auth.onAuthStateChanged(
       user => {
@@ -27,6 +28,11 @@ export class HomePage {
         }
       }
     )
+  }
+
+  signOff(){
+    this.userService.logOut();
+    this.loggedIn = '';
   }
 
 }
