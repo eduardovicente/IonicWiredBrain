@@ -12,10 +12,12 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { UserServiceProvider } from '../providers/user-service/user-service';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyB30vsDRSsISFki69kqP7YYkj-EnVl0NCk",
   authDomain: "wired-coffee-de319.firbaseappp.com",
-  databaseURL: "https://wired-coffee-de319.firbaseio.com",  
+  databaseURL: "https://wired-coffee-de319.firebaseio.com",
   storageBucket: "wired-coffee-de319.appspot.com",
   messagingSenderId: "844595014389",
 }
@@ -30,7 +32,8 @@ export const firebaseConfig = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
