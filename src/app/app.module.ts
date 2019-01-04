@@ -13,6 +13,7 @@ import { HomePage } from '../pages/home/home';
 import { UserServiceProvider } from '../providers/user-service/user-service';
 
 import { IonicStorageModule } from '@ionic/storage';
+import { RewardServiceProvider } from '../providers/reward-service/reward-service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB30vsDRSsISFki69kqP7YYkj-EnVl0NCk",
@@ -44,7 +45,8 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserServiceProvider
+    UserServiceProvider,
+    RewardServiceProvider
   ]
 })
 export class AppModule {}
