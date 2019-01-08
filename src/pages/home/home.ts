@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -8,7 +8,7 @@ import { UserServiceProvider } from '../../providers/user-service/user-service';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit{
   menuData = [
     {title: 'Our Menu', pic:'assets/img/soup1.jpg', pushPage: 'MenuPage'},
     {title: 'Account', pic:'assets/img/coffee-people3.jpg', pushPage: 'AccountPage'},
@@ -19,12 +19,14 @@ export class HomePage {
   logPage: any;
   loggedIn: any;
 
-  constructor(public navCtrl: NavController, private afAuth: AngularFireAuth, private userService: UserServiceProvider) {
+  constructor(public navCtrl: NavController, private afAuth: AngularFireAuth, private userService: UserServiceProvider) {}
+
+  ngOnInit(){
     this.logPage = 'LoginPage';
     this.afAuth.auth.onAuthStateChanged(
       user => {
         if(user){
-          this.loggedIn = user.email;
+          this.loggedIn = this.userService.user = user.email;
         }
       }
     )
@@ -35,4 +37,11 @@ export class HomePage {
     this.loggedIn = '';
   }
 
+  myPagePush(page){
+    this.navCtrl.push(page).then(result => {
+      if(!result){
+        this.userService.displayAlert('Sorry', 'You should first register an account');
+      }
+    })
+  }
 }
