@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "844595014389",
+    "firebase_url": "https://wired-coffee-de319.firebaseio.com",
+    "project_id": "wired-coffee-de319",
+    "storage_bucket": "wired-coffee-de319.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844595014389:android:e0d9631ad6e490c8",
+        "android_client_info": {
+          "package_name": "com.wiredbrain.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844595014389-h7odb1tak58m92l3tca09n5i2eo60re7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYPyQtgUFuCCnksFvxfH9Q-PawHKgQz24"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

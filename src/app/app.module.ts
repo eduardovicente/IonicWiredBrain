@@ -15,6 +15,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
 import { IonicStorageModule } from '@ionic/storage';
 import { RewardServiceProvider } from '../providers/reward-service/reward-service';
 import { RewardModalPageModule } from '../pages/reward-modal/reward-modal.module';
+import { FCM } from '@ionic-native/fcm';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB30vsDRSsISFki69kqP7YYkj-EnVl0NCk",
@@ -48,7 +49,8 @@ export const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
-    RewardServiceProvider
+    RewardServiceProvider,
+    FCM
   ]
 })
 export class AppModule {}
