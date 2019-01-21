@@ -3,7 +3,6 @@ import { NavController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
-import { FCM } from '@ionic-native/fcm';
 
 @Component({
   selector: 'page-home',
@@ -21,7 +20,7 @@ export class HomePage implements OnInit{
   loggedIn: any;
 
   constructor(public navCtrl: NavController, private afAuth: AngularFireAuth, 
-              private userService: UserServiceProvider, private fcm: FCM) {}
+              private userService: UserServiceProvider) {}
 
   ngOnInit(){
     this.logPage = 'LoginPage';
@@ -32,7 +31,7 @@ export class HomePage implements OnInit{
         }
       }
     )
-    this.initFcm();
+    //this.initFcm();
   }
 
   signOff(){
@@ -48,15 +47,15 @@ export class HomePage implements OnInit{
     })
   }
 
-  initFcm(){
-    this.fcm.onNotification().subscribe(data => {
-      if(data.wasTapped){
-        console.log(data);
-        this.userService.displayAlert(data.title,data.content);
-      }else{
-        console.log(data);
-        this.userService.displayAlert(data.title,data.content);
-      }
-    })
-  }
+  // initFcm(){
+  //   this.fcm.onNotification().subscribe(data => {
+  //     if(data.wasTapped){
+  //       console.log(data);
+  //       this.userService.displayAlert(data.title,data.content);
+  //     }else{
+  //       console.log(data);
+  //       this.userService.displayAlert(data.title,data.content);
+  //     }
+  //   })
+  // }
 }
